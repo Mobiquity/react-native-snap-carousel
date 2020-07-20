@@ -832,6 +832,7 @@ export default class Carousel extends Component {
     }
 
     _onTouchStart () {
+        if(IS_IOS){
         const { onTouchStart } = this.props
 
         // `onTouchStart` is fired even when `scrollEnabled` is set to `false`
@@ -842,9 +843,11 @@ export default class Carousel extends Component {
         if (onTouchStart) {
             onTouchStart()
         }
+      }
     }
 
     _onTouchEnd () {
+        if(IS_IOS){
         const { onTouchEnd } = this.props
 
         if (this._getScrollEnabled() !== false && this._autoplay && !this._autoplaying) {
@@ -855,6 +858,7 @@ export default class Carousel extends Component {
         if (onTouchEnd) {
             onTouchEnd()
         }
+      }
     }
 
     // Used when `enableSnap` is ENABLED
